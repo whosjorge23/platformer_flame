@@ -5,12 +5,14 @@ import 'package:flame/components.dart';
 import 'package:flutter/services.dart';
 import 'package:platform_game/collisions/collision_block.dart';
 import 'package:platform_game/collisions/custom_hitbox.dart';
+import 'package:platform_game/fruits/fruit.dart';
 import 'package:platform_game/pixel_adventure.dart';
 import 'package:platform_game/utils/utils.dart';
 
 enum PlayerState { idle, running, jumping, falling, hit, appearing, disappearing }
 
-class Player extends SpriteAnimationGroupComponent with HasGameRef<PixelAdventure>, KeyboardHandler {
+class Player extends SpriteAnimationGroupComponent
+    with HasGameRef<PixelAdventure>, KeyboardHandler, CollisionCallbacks {
   String character;
 
   Player({position, this.character = 'Ninja Frog'}) : super(position: position);
@@ -76,6 +78,17 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<PixelAdventur
         keysPressed.contains(LogicalKeyboardKey.arrowUp);
 
     return super.onKeyEvent(event, keysPressed);
+  }
+
+  @override
+  void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
+    // if (!reachedCheckpoint) {
+    if (other is Fruit) other.collidedWithPlayer();
+    // if (other is Saw) _respawn();
+    // if (other is Chicken) other.collidedWithPlayer();
+    // if (other is Checkpoint) _reachedCheckpoint();
+    // }
+    super.onCollisionStart(intersectionPoints, other);
   }
 
   void _loadAllAnimations() {
