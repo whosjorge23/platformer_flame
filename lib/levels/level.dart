@@ -2,6 +2,7 @@ import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:platform_game/actors/player.dart';
 import 'package:platform_game/background/background_tile.dart';
+import 'package:platform_game/checkpoints/checkpoint.dart';
 import 'package:platform_game/collisions/collision_block.dart';
 import 'package:platform_game/fruits/fruit.dart';
 import 'package:platform_game/traps/saw.dart';
@@ -56,6 +57,13 @@ class Level extends World {
               size: Vector2(spawnPoint.width, spawnPoint.height),
             );
             add(saw);
+            break;
+          case 'Checkpoint':
+            final checkpoint = Checkpoint(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+            );
+            add(checkpoint);
             break;
         }
       }
