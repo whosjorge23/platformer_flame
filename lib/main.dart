@@ -19,8 +19,8 @@ void main() async {
     isMobile = false;
   }
 
-  PixelAdventure game = PixelAdventure(showJoystick: isMobile);
+  PixelAdventure game = PixelAdventure(showControls: isMobile);
   runApp(
-    GameWidget(game: kDebugMode ? PixelAdventure(showJoystick: isMobile) : game),
+    GameWidget(game: kDebugMode ? PixelAdventure(showControls: isMobile) : game),
   );
 }
