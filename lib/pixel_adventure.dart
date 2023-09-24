@@ -33,7 +33,7 @@ class PixelAdventure extends FlameGame
 
     if (showControls) {
       addJoystick();
-      // add(JumpButton());
+      add(JumpButton());
     }
     return super.onLoad();
   }
