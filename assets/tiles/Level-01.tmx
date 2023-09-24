@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="39">
  <tileset firstgid="1" source="Pixel Adventure.tsx"/>
- <layer id="1" name="Background" width="40" height="23">
+ <layer id="1" name="Background" width="40" height="23" locked="1" offsetx="0.744546" offsety="0">
   <properties>
-   <property name="BackgroundColor" value="Gray"/>
+   <property name="BackgroundColor" value="Green"/>
   </properties>
   <data encoding="csv">
 24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,
@@ -68,7 +68,7 @@
  </objectgroup>
  <objectgroup id="3" name="Collisions">
   <object id="7" x="48" y="48" width="16" height="272"/>
-  <object id="8" x="64" y="48" width="528" height="16"/>
+  <object id="8" x="96.0041" y="48" width="495.996" height="16"/>
   <object id="9" x="576" y="64" width="16" height="256"/>
   <object id="10" x="64" y="304" width="512" height="16"/>
   <object id="11" x="64" y="240" width="16" height="16"/>

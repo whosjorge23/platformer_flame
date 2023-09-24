@@ -8,18 +8,19 @@ import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 import 'package:platform_game/levels/level.dart';
 import 'package:platform_game/actors/player.dart';
+import 'package:platform_game/utils/jump_button.dart';
 
 class PixelAdventure extends FlameGame
     with HasKeyboardHandlerComponents, DragCallbacks, HasCollisionDetection, TapCallbacks {
   @override
   Color backgroundColor() => const Color(0xFF211f30);
 
-  PixelAdventure({required this.showJoystick});
+  PixelAdventure({required this.showControls});
 
   Player player = Player(character: 'Ninja Frog');
   late CameraComponent cam;
   late JoystickComponent joystick;
-  bool showJoystick;
+  bool showControls;
   List<String> levelNames = ['Level-01', 'Level-02'];
   int currentLevelIndex = 0;
 
@@ -27,18 +28,19 @@ class PixelAdventure extends FlameGame
   FutureOr<void> onLoad() async {
     //Load all images into cache
     await images.loadAllImages();
-    
+
     _loadLevel();
 
-    if (showJoystick) {
+    if (showControls) {
       addJoystick();
+      add(JumpButton());
     }
     return super.onLoad();
   }
 
   @override
   void update(double dt) {
-    if (showJoystick) {
+    if (showControls) {
       updateJoystick();
     }
     super.update(dt);

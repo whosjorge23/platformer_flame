@@ -25,7 +25,6 @@ class Fruit extends SpriteAnimationComponent with HasGameRef<PixelAdventure>, Co
     width: 12,
     height: 12,
   );
-  bool collected = false;
 
   @override
   FutureOr<void> onLoad() {
@@ -51,23 +50,20 @@ class Fruit extends SpriteAnimationComponent with HasGameRef<PixelAdventure>, Co
   }
 
   void collidedWithPlayer() async {
-    if (!collected) {
-      collected = true;
-      // if (game.playSounds) {
-      //   FlameAudio.play('collect_fruit.wav', volume: game.soundVolume);
-      // }
-      animation = SpriteAnimation.fromFrameData(
-        game.images.fromCache('Items/Fruits/Collected.png'),
-        SpriteAnimationData.sequenced(
-          amount: 6,
-          stepTime: stepTime,
-          textureSize: Vector2.all(32),
-          loop: false,
-        ),
-      );
+    // if (game.playSounds) {
+    //   FlameAudio.play('collect_fruit.wav', volume: game.soundVolume);
+    // }
+    animation = SpriteAnimation.fromFrameData(
+      game.images.fromCache('Items/Fruits/Collected.png'),
+      SpriteAnimationData.sequenced(
+        amount: 6,
+        stepTime: stepTime,
+        textureSize: Vector2.all(32),
+        loop: false,
+      ),
+    );
 
-      await animationTicker?.completed;
-      removeFromParent();
-    }
+    await animationTicker?.completed;
+    removeFromParent();
   }
 }
