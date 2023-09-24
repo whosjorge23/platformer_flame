@@ -19,6 +19,7 @@ class Fruit extends SpriteAnimationComponent with HasGameRef<PixelAdventure>, Co
         );
 
   final double stepTime = 0.05;
+  bool collected = false;
   final hitbox = CustomHitbox(
     offsetX: 10,
     offsetY: 10,
@@ -50,20 +51,23 @@ class Fruit extends SpriteAnimationComponent with HasGameRef<PixelAdventure>, Co
   }
 
   void collidedWithPlayer() async {
-    // if (game.playSounds) {
-    //   FlameAudio.play('collect_fruit.wav', volume: game.soundVolume);
-    // }
-    animation = SpriteAnimation.fromFrameData(
-      game.images.fromCache('Items/Fruits/Collected.png'),
-      SpriteAnimationData.sequenced(
-        amount: 6,
-        stepTime: stepTime,
-        textureSize: Vector2.all(32),
-        loop: false,
-      ),
-    );
+    if (!collected) {
+      collected = true;
+      if (game.playSounds) {
+        FlameAudio.play('collect_fruit.wav', volume: game.soundVolume);
+      }
+      animation = SpriteAnimation.fromFrameData(
+        game.images.fromCache('Items/Fruits/Collected.png'),
+        SpriteAnimationData.sequenced(
+          amount: 6,
+          stepTime: stepTime,
+          textureSize: Vector2.all(32),
+          loop: false,
+        ),
+      );
 
-    await animationTicker?.completed;
-    removeFromParent();
+      await animationTicker?.completed;
+      removeFromParent();
+    }
   }
 }

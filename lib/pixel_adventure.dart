@@ -21,6 +21,8 @@ class PixelAdventure extends FlameGame
   late CameraComponent cam;
   late JoystickComponent joystick;
   bool showControls;
+  bool playSounds = true;
+  double soundVolume = 1.0;
   List<String> levelNames = ['Level-01', 'Level-02'];
   int currentLevelIndex = 0;
 
