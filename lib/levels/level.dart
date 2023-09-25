@@ -4,6 +4,9 @@ import 'package:platform_game/actors/player.dart';
 import 'package:platform_game/background/background_tile.dart';
 import 'package:platform_game/checkpoints/checkpoint.dart';
 import 'package:platform_game/collisions/collision_block.dart';
+import 'package:platform_game/enemy/chameleon.dart';
+import 'package:platform_game/enemy/chicken.dart';
+import 'package:platform_game/enemy/rhino.dart';
 import 'package:platform_game/fruits/fruit.dart';
 import 'package:platform_game/traps/saw.dart';
 
@@ -65,6 +68,39 @@ class Level extends World {
               size: Vector2(spawnPoint.width, spawnPoint.height),
             );
             add(checkpoint);
+            break;
+          case 'Chicken':
+            final offNeg = spawnPoint.properties.getValue('offNeg');
+            final offPos = spawnPoint.properties.getValue('offPos');
+            final chicken = Chicken(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+              offNeg: offNeg,
+              offPos: offPos,
+            );
+            add(chicken);
+            break;
+          case 'Rhino':
+            final offNeg = spawnPoint.properties.getValue('offNeg');
+            final offPos = spawnPoint.properties.getValue('offPos');
+            final rhino = Rhino(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+              offNeg: offNeg,
+              offPos: offPos,
+            );
+            add(rhino);
+            break;
+          case 'Chameleon':
+            final offNeg = spawnPoint.properties.getValue('offNeg');
+            final offPos = spawnPoint.properties.getValue('offPos');
+            final chameleon = Chameleon(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+              offNeg: offNeg,
+              offPos: offPos,
+            );
+            add(chameleon);
             break;
         }
       }

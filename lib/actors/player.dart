@@ -7,6 +7,9 @@ import 'package:flutter/services.dart';
 import 'package:platform_game/checkpoints/checkpoint.dart';
 import 'package:platform_game/collisions/collision_block.dart';
 import 'package:platform_game/collisions/custom_hitbox.dart';
+import 'package:platform_game/enemy/chameleon.dart';
+import 'package:platform_game/enemy/chicken.dart';
+import 'package:platform_game/enemy/rhino.dart';
 import 'package:platform_game/fruits/fruit.dart';
 import 'package:platform_game/pixel_adventure.dart';
 import 'package:platform_game/traps/saw.dart';
@@ -106,7 +109,9 @@ class Player extends SpriteAnimationGroupComponent
     if (!reachedCheckpoint) {
       if (other is Fruit) other.collidedWithPlayer();
       if (other is Saw) _respawn();
-      // if (other is Chicken) other.collidedWithPlayer();
+      if (other is Chicken) other.collidedWithPlayer();
+      if (other is Rhino) other.collidedWithPlayer();
+      if (other is Chameleon) other.collidedWithPlayer();
       if (other is Checkpoint) _reachedCheckpoint();
     }
     super.onCollisionStart(intersectionPoints, other);
@@ -291,5 +296,9 @@ class Player extends SpriteAnimationGroupComponent
 
     const waitToChangeDuration = Duration(seconds: 3);
     Future.delayed(waitToChangeDuration, () => game.loadNextLevel());
+  }
+
+  void collidedwithEnemy() {
+    _respawn();
   }
 }
