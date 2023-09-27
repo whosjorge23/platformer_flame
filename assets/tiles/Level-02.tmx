@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="39">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="40">
  <tileset firstgid="1" source="Pixel Adventure.tsx"/>
  <layer id="1" name="Background" width="40" height="23" locked="1">
   <properties>
@@ -38,7 +38,7 @@
   <object id="23" name="Apple" type="Fruit" x="80" y="176" width="32" height="32"/>
   <object id="24" name="Cherries" type="Fruit" x="192" y="128" width="32" height="32"/>
   <object id="25" name="Cherries" type="Fruit" x="224" y="128" width="32" height="32"/>
-  <object id="26" name="Cherries" type="Fruit" x="208" y="96" width="32" height="32"/>
+  <object id="26" name="Melon" type="Fruit" x="208" y="96" width="32" height="32"/>
   <object id="27" name="Cherries" type="Fruit" x="336" y="160" width="32" height="32"/>
   <object id="28" name="Cherries" type="Fruit" x="368" y="160" width="32" height="32"/>
   <object id="29" name="Melon" type="Fruit" x="352" y="128" width="32" height="32"/>
@@ -52,10 +52,10 @@
    </properties>
   </object>
   <object id="36" type="Checkpoint" x="512" y="144" width="64" height="64"/>
-  <object id="37" name="Chameleon" type="Chameleon" x="336" y="272" width="32" height="32">
+  <object id="37" name="Chameleon" type="Chameleon" x="304" y="272" width="32" height="32">
    <properties>
-    <property name="offNeg" type="float" value="12"/>
-    <property name="offPos" type="float" value="5"/>
+    <property name="offNeg" type="float" value="1"/>
+    <property name="offPos" type="float" value="6"/>
    </properties>
   </object>
   <object id="38" name="Saw" type="Saw" x="288.892" y="121.668" width="32" height="32">
@@ -63,6 +63,12 @@
     <property name="isVertical" type="bool" value="true"/>
     <property name="offNeg" type="float" value="4"/>
     <property name="offPos" type="float" value="3"/>
+   </properties>
+  </object>
+  <object id="39" name="Chameleon" type="Chameleon" x="256" y="272" width="32" height="32">
+   <properties>
+    <property name="offNeg" type="float" value="6"/>
+    <property name="offPos" type="float" value="1"/>
    </properties>
   </object>
  </objectgroup>
