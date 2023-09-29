@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:platform_game/checkpoints/checkpoint.dart';
 import 'package:platform_game/collisions/collision_block.dart';
 import 'package:platform_game/collisions/custom_hitbox.dart';
+import 'package:platform_game/collisions/trampoline.dart';
 import 'package:platform_game/enemy/chameleon.dart';
 import 'package:platform_game/enemy/chicken.dart';
 import 'package:platform_game/enemy/rhino.dart';
@@ -113,6 +114,7 @@ class Player extends SpriteAnimationGroupComponent
       if (other is Rhino) other.collidedWithPlayer();
       if (other is Chameleon) other.collidedWithPlayer();
       if (other is Checkpoint) _reachedCheckpoint();
+      if (other is Trampoline) other.collidedWithPlayer();
     }
     super.onCollisionStart(intersectionPoints, other);
   }
