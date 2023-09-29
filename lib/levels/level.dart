@@ -4,6 +4,7 @@ import 'package:platform_game/actors/player.dart';
 import 'package:platform_game/background/background_tile.dart';
 import 'package:platform_game/checkpoints/checkpoint.dart';
 import 'package:platform_game/collisions/collision_block.dart';
+import 'package:platform_game/collisions/trampoline.dart';
 import 'package:platform_game/enemy/chameleon.dart';
 import 'package:platform_game/enemy/chicken.dart';
 import 'package:platform_game/enemy/rhino.dart';
@@ -101,6 +102,17 @@ class Level extends World {
               offPos: offPos,
             );
             add(chameleon);
+            break;
+          case 'Trampoline':
+            final offNeg = spawnPoint.properties.getValue('offNeg');
+            final offPos = spawnPoint.properties.getValue('offPos');
+            final trampoline = Trampoline(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+              offNeg: offNeg,
+              offPos: offPos,
+            );
+            add(trampoline);
             break;
         }
       }

@@ -72,6 +72,7 @@ flutter:
     - assets/images/Terrain/
     - assets/images/HUD/
     - assets/images/Traps/Saw/
+    - assets/images/Traps/Trampoline/
     - assets/images/Items/Checkpoints/Checkpoint/
     - assets/images/Items/Fruits/
     - assets/images/Main Characters/
