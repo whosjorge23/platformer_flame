@@ -28,6 +28,7 @@ class PixelAdventure extends FlameGame
     'Level-02',
     'Level-03',
     'Level-04',
+    'Level-05',
   ];
   int currentLevelIndex = 0;
 
