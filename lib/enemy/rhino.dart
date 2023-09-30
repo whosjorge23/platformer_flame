@@ -99,11 +99,11 @@ class Rhino extends SpriteAnimationGroupComponent with HasGameRef<PixelAdventure
     velocity.x = 0;
 
     double playerOffset = (player.scale.x > 0) ? 0 : -player.width;
-    double chickenOffset = (scale.x > 0) ? 0 : -width;
+    double rhinoOffset = (scale.x > 0) ? 0 : -width;
 
     if (playerInRange()) {
       // player in range
-      targetDirection = (player.x + playerOffset < position.x + chickenOffset) ? -1 : 1;
+      targetDirection = (player.x + playerOffset < position.x + rhinoOffset) ? -1 : 1;
       velocity.x = targetDirection * runSpeed;
     }
 

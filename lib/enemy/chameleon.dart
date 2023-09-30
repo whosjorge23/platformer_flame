@@ -99,11 +99,11 @@ class Chameleon extends SpriteAnimationGroupComponent with HasGameRef<PixelAdven
     velocity.x = 0;
 
     double playerOffset = (player.scale.x > 0) ? 0 : -player.width;
-    double chickenOffset = (scale.x > 0) ? 0 : -width;
+    double chameleonOffset = (scale.x > 0) ? 0 : -width;
 
     if (playerInRange()) {
       // player in range
-      targetDirection = (player.x + playerOffset < position.x + chickenOffset) ? -1 : 1;
+      targetDirection = (player.x + playerOffset < position.x + chameleonOffset) ? -1 : 1;
       velocity.x = targetDirection * runSpeed;
     }
 
