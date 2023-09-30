@@ -51,6 +51,7 @@ class PixelAdventure extends FlameGame
     if (showControls) {
       updateJoystick();
     }
+
     super.update(dt);
   }
 
@@ -117,6 +118,7 @@ class PixelAdventure extends FlameGame
         height: 360,
       );
       cam.viewfinder.anchor = Anchor.topLeft;
+      // cam.follow(player);
 
       addAll([cam, world]);
     });
