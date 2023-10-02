@@ -12,12 +12,14 @@ enum State { idle, run, hit }
 class Rhino extends SpriteAnimationGroupComponent with HasGameRef<PixelAdventure>, CollisionCallbacks {
   final double offNeg;
   final double offPos;
+  final bool isStartingFlipped;
 
   Rhino({
     super.position,
     super.size,
     this.offNeg = 0,
     this.offPos = 0,
+    this.isStartingFlipped = false,
   });
 
   static const stepTime = 0.05;
@@ -50,6 +52,9 @@ class Rhino extends SpriteAnimationGroupComponent with HasGameRef<PixelAdventure
       ),
     );
     _loadAllAnimations();
+    if (isStartingFlipped) {
+      flipHorizontallyAroundCenter();
+    }
     _calculateRange();
     return super.onLoad();
   }

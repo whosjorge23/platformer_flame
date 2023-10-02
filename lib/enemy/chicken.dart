@@ -12,12 +12,14 @@ enum State { idle, run, hit }
 class Chicken extends SpriteAnimationGroupComponent with HasGameRef<PixelAdventure>, CollisionCallbacks {
   final double offNeg;
   final double offPos;
+  final bool isStartingFlipped;
 
   Chicken({
     super.position,
     super.size,
     this.offNeg = 0,
     this.offPos = 0,
+    this.isStartingFlipped = false,
   });
 
   static const stepTime = 0.05;
@@ -42,7 +44,6 @@ class Chicken extends SpriteAnimationGroupComponent with HasGameRef<PixelAdventu
   FutureOr<void> onLoad() {
     // debugMode = true;
     player = game.player;
-
     add(
       RectangleHitbox(
         position: Vector2(4, 6),
@@ -60,7 +61,6 @@ class Chicken extends SpriteAnimationGroupComponent with HasGameRef<PixelAdventu
       _updateState();
       _movement(dt);
     }
-
     super.update(dt);
   }
 

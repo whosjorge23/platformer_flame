@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="63">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="65">
  <tileset firstgid="1" source="Pixel Adventure.tsx"/>
  <layer id="1" name="Background" width="40" height="23">
   <properties>
@@ -13,13 +13,13 @@
 24,24,24,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,24,24,24,
 24,24,24,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,24,24,24,
 24,24,24,128,237,237,237,0,0,0,66,66,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,24,24,24,
-24,24,24,128,109,109,109,109,109,109,109,144,144,144,144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,24,24,24,
-24,24,24,128,0,0,0,0,0,237,237,237,0,0,0,0,0,0,0,0,0,0,0,0,0,237,237,237,237,237,237,237,237,237,237,237,130,24,24,24,
-24,24,24,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,24,24,24,
-24,24,112,128,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,108,231,231,231,0,0,130,24,24,24,
+24,24,24,128,143,143,143,143,143,143,143,144,144,144,144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,24,24,24,
+24,24,24,128,129,129,132,129,129,129,130,237,0,0,0,0,0,0,0,0,0,0,0,0,0,237,237,237,237,237,237,237,237,237,237,237,130,24,24,24,
+24,24,24,128,129,129,129,129,129,129,130,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,130,24,24,24,
+24,24,112,128,129,129,129,129,129,129,129,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,108,231,231,231,0,0,130,24,24,24,
 24,24,112,128,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,129,130,0,0,0,84,0,130,24,24,24,
 24,24,112,128,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,151,152,0,84,84,237,0,130,24,24,24,
-24,24,112,128,237,237,237,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,237,237,237,237,237,237,237,130,24,24,24,
+24,24,112,128,237,237,237,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,237,237,237,109,109,109,109,130,24,24,24,
 24,24,112,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,237,237,237,130,24,24,24,
 24,24,24,128,224,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,237,237,237,130,24,24,24,
 24,24,24,128,237,237,237,106,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,107,130,24,24,24,
@@ -37,15 +37,16 @@
   <object id="30" name="Kiwi" type="Fruit" x="304" y="128" width="32" height="32"/>
   <object id="37" name="Chicken" type="Chicken" x="384" y="128" width="32" height="32">
    <properties>
+    <property name="isStartingFlipped" type="bool" value="true"/>
     <property name="offNeg" type="float" value="4"/>
     <property name="offPos" type="float" value="4"/>
    </properties>
   </object>
-  <object id="39" name="Saw" type="Saw" x="160" y="176" width="32" height="32">
+  <object id="39" name="Saw" type="Saw" x="112" y="128" width="32" height="32">
    <properties>
-    <property name="isVertical" type="bool" value="true"/>
+    <property name="isVertical" type="bool" value="false"/>
     <property name="offNeg" type="float" value="0"/>
-    <property name="offPos" type="float" value="5"/>
+    <property name="offPos" type="float" value="4"/>
    </properties>
   </object>
   <object id="54" name="Checkpoint" type="Checkpoint" x="64" y="64" width="64" height="64"/>
@@ -72,8 +73,16 @@
   </object>
   <object id="61" name="Chicken" type="Chicken" x="224" y="128" width="32" height="32">
    <properties>
+    <property name="isStartingFlipped" type="bool" value="false"/>
     <property name="offNeg" type="float" value="4"/>
     <property name="offPos" type="float" value="4"/>
+   </properties>
+  </object>
+  <object id="64" name="Saw" type="Saw" x="144" y="176" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offNeg" type="float" value="0"/>
+    <property name="offPos" type="float" value="5"/>
    </properties>
   </object>
  </objectgroup>
@@ -82,9 +91,9 @@
   <object id="8" x="64" y="48" width="528" height="16"/>
   <object id="9" x="576" y="64" width="16" height="256"/>
   <object id="10" x="64" y="304" width="512" height="16"/>
-  <object id="12" name="Block" x="64" y="160" width="432" height="48"/>
-  <object id="14" name="Platform" x="512" y="208" width="64" height="16"/>
+  <object id="12" name="Block" x="64" y="128" width="112" height="80"/>
+  <object id="14" name="Platform" type="Platform" x="512" y="208" width="64" height="16"/>
   <object id="57" name="Block" x="112" y="256" width="464" height="48"/>
-  <object id="62" name="Platform" x="64" y="112" width="112" height="16"/>
+  <object id="63" name="Block" x="176" y="160" width="320" height="48"/>
  </objectgroup>
 </map>

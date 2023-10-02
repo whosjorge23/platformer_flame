@@ -71,6 +71,7 @@ class Level extends World {
             add(checkpoint);
             break;
           case 'Chicken':
+            final isStartingFlipped = spawnPoint.properties.getValue('isStartingFlipped');
             final offNeg = spawnPoint.properties.getValue('offNeg');
             final offPos = spawnPoint.properties.getValue('offPos');
             final chicken = Chicken(
@@ -78,10 +79,12 @@ class Level extends World {
               size: Vector2(spawnPoint.width, spawnPoint.height),
               offNeg: offNeg,
               offPos: offPos,
+              isStartingFlipped: isStartingFlipped,
             );
             add(chicken);
             break;
           case 'Rhino':
+            final isStartingFlipped = spawnPoint.properties.getValue('isStartingFlipped');
             final offNeg = spawnPoint.properties.getValue('offNeg');
             final offPos = spawnPoint.properties.getValue('offPos');
             final rhino = Rhino(
@@ -89,10 +92,12 @@ class Level extends World {
               size: Vector2(spawnPoint.width, spawnPoint.height),
               offNeg: offNeg,
               offPos: offPos,
+              isStartingFlipped: isStartingFlipped,
             );
             add(rhino);
             break;
           case 'Chameleon':
+            final isStartingFlipped = spawnPoint.properties.getValue('isStartingFlipped');
             final offNeg = spawnPoint.properties.getValue('offNeg');
             final offPos = spawnPoint.properties.getValue('offPos');
             final chameleon = Chameleon(
@@ -100,6 +105,7 @@ class Level extends World {
               size: Vector2(spawnPoint.width, spawnPoint.height),
               offNeg: offNeg,
               offPos: offPos,
+              isStartingFlipped: isStartingFlipped,
             );
             add(chameleon);
             break;

@@ -54,6 +54,7 @@
   <object id="36" type="Checkpoint" x="512" y="144" width="64" height="64"/>
   <object id="37" name="Chameleon" type="Chameleon" x="304" y="272" width="32" height="32">
    <properties>
+    <property name="isStartingFlipped" type="bool" value="true"/>
     <property name="offNeg" type="float" value="1"/>
     <property name="offPos" type="float" value="6"/>
    </properties>
@@ -67,6 +68,7 @@
   </object>
   <object id="39" name="Chameleon" type="Chameleon" x="256" y="272" width="32" height="32">
    <properties>
+    <property name="isStartingFlipped" type="bool" value="false"/>
     <property name="offNeg" type="float" value="6"/>
     <property name="offPos" type="float" value="1"/>
    </properties>
