@@ -10,6 +10,7 @@ import 'package:platform_game/collisions/custom_hitbox.dart';
 import 'package:platform_game/collisions/trampoline.dart';
 import 'package:platform_game/enemy/chameleon.dart';
 import 'package:platform_game/enemy/chicken.dart';
+import 'package:platform_game/enemy/ghost.dart';
 import 'package:platform_game/enemy/rhino.dart';
 import 'package:platform_game/fruits/fruit.dart';
 import 'package:platform_game/pixel_adventure.dart';
@@ -47,6 +48,8 @@ class Player extends SpriteAnimationGroupComponent
   double fixedDeltaTime = 1 / 60;
   double accumulatedTime = 0;
   List<CollisionBlock> collisionBlocks = [];
+
+  // bool canDoubleJump = true;
 
   CustomHitbox hitbox = CustomHitbox(
     offsetX: 10,
@@ -111,6 +114,7 @@ class Player extends SpriteAnimationGroupComponent
       if (other is Fruit) other.collidedWithPlayer();
       if (other is Saw) _respawn();
       if (other is Chicken) other.collidedWithPlayer();
+      if (other is Ghost) other.collidedWithPlayer();
       if (other is Rhino) other.collidedWithPlayer();
       if (other is Chameleon) other.collidedWithPlayer();
       if (other is Checkpoint) _reachedCheckpoint();
@@ -124,7 +128,8 @@ class Player extends SpriteAnimationGroupComponent
     runAnimation = _spriteAnimation('Run', 12);
     jumpingAnimation = _spriteAnimation('Jump', 1);
     fallingAnimation = _spriteAnimation('Fall', 1);
-    hitAnimation = _spriteAnimation('Hit', 7)..loop = false;
+    hitAnimation = _spriteAnimation('Hit', 7)
+      ..loop = false;
     appearingAnimation = _specialSpriteAnimation('Appearing', 7);
     disappearingAnimation = _specialSpriteAnimation('Desappearing', 7);
 
@@ -164,6 +169,11 @@ class Player extends SpriteAnimationGroupComponent
 
   void _updatePlayerMovement(double dt) {
     if (hasJumped && isOnGround) _playerJump(dt);
+
+    // if (hasJumped && canDoubleJump) {
+    //   _playerJump(dt);
+    //   canDoubleJump = false; // Disable double jump after using it
+    // }
 
     // if (velocity.y > _gravity) isOnGround = false; // optional if you want that the player cannot jump while falling
 
@@ -212,6 +222,7 @@ class Player extends SpriteAnimationGroupComponent
             velocity.y = 0;
             position.y = block.y - hitbox.height - hitbox.offsetY;
             isOnGround = true;
+            // canDoubleJump = true; // Reset double jump when landing
             break;
           }
         }
@@ -221,6 +232,7 @@ class Player extends SpriteAnimationGroupComponent
             velocity.y = 0;
             position.y = block.y - hitbox.height - hitbox.offsetY;
             isOnGround = true;
+            // canDoubleJump = true; // Reset double jump when colliding with a block
             break;
           }
           if (velocity.y < 0) {
