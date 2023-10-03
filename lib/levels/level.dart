@@ -7,6 +7,7 @@ import 'package:platform_game/collisions/collision_block.dart';
 import 'package:platform_game/collisions/trampoline.dart';
 import 'package:platform_game/enemy/chameleon.dart';
 import 'package:platform_game/enemy/chicken.dart';
+import 'package:platform_game/enemy/ghost.dart';
 import 'package:platform_game/enemy/rhino.dart';
 import 'package:platform_game/fruits/fruit.dart';
 import 'package:platform_game/traps/saw.dart';
@@ -82,6 +83,19 @@ class Level extends World {
               isStartingFlipped: isStartingFlipped,
             );
             add(chicken);
+            break;
+          case 'Ghost':
+            final isStartingFlipped = spawnPoint.properties.getValue('isStartingFlipped');
+            final offNeg = spawnPoint.properties.getValue('offNeg');
+            final offPos = spawnPoint.properties.getValue('offPos');
+            final ghost = Ghost(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+              offNeg: offNeg,
+              offPos: offPos,
+              isStartingFlipped: isStartingFlipped,
+            );
+            add(ghost);
             break;
           case 'Rhino':
             final isStartingFlipped = spawnPoint.properties.getValue('isStartingFlipped');
