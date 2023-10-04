@@ -49,7 +49,7 @@ class Player extends SpriteAnimationGroupComponent
   double accumulatedTime = 0;
   List<CollisionBlock> collisionBlocks = [];
 
-  // bool canDoubleJump = true;
+  bool canDoubleJump = true;
 
   CustomHitbox hitbox = CustomHitbox(
     offsetX: 10,
@@ -128,8 +128,7 @@ class Player extends SpriteAnimationGroupComponent
     runAnimation = _spriteAnimation('Run', 12);
     jumpingAnimation = _spriteAnimation('Jump', 1);
     fallingAnimation = _spriteAnimation('Fall', 1);
-    hitAnimation = _spriteAnimation('Hit', 7)
-      ..loop = false;
+    hitAnimation = _spriteAnimation('Hit', 7)..loop = false;
     appearingAnimation = _specialSpriteAnimation('Appearing', 7);
     disappearingAnimation = _specialSpriteAnimation('Desappearing', 7);
 
@@ -170,10 +169,10 @@ class Player extends SpriteAnimationGroupComponent
   void _updatePlayerMovement(double dt) {
     if (hasJumped && isOnGround) _playerJump(dt);
 
-    // if (hasJumped && canDoubleJump) {
-    //   _playerJump(dt);
-    //   canDoubleJump = false; // Disable double jump after using it
-    // }
+    if (hasJumped && canDoubleJump) {
+      _playerJump(dt);
+      canDoubleJump = false; // Disable double jump after using it
+    }
 
     // if (velocity.y > _gravity) isOnGround = false; // optional if you want that the player cannot jump while falling
 
@@ -222,7 +221,7 @@ class Player extends SpriteAnimationGroupComponent
             velocity.y = 0;
             position.y = block.y - hitbox.height - hitbox.offsetY;
             isOnGround = true;
-            // canDoubleJump = true; // Reset double jump when landing
+            canDoubleJump = true; // Reset double jump when landing
             break;
           }
         }
@@ -232,7 +231,7 @@ class Player extends SpriteAnimationGroupComponent
             velocity.y = 0;
             position.y = block.y - hitbox.height - hitbox.offsetY;
             isOnGround = true;
-            // canDoubleJump = true; // Reset double jump when colliding with a block
+            canDoubleJump = true; // Reset double jump when colliding with a block
             break;
           }
           if (velocity.y < 0) {

@@ -41,7 +41,7 @@ class Ghost extends SpriteAnimationGroupComponent with HasGameRef<PixelAdventure
 
   @override
   FutureOr<void> onLoad() {
-    debugMode = true;
+    // debugMode = true;
     player = game.player;
     add(
       RectangleHitbox(
